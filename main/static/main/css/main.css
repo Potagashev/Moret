@@ -1,0 +1,22 @@
+.make-center {
+    text-align: center
+}
+.in-row{
+    display: flex;
+    flex-direction: row;
+}
+.center {
+  margin: 15px 20px 15px 20px;
+  width: 60%;
+}
+.blue {
+  padding: 12px 24px;
+  background: #2196f3;
+}
+
+.tasks {
+    display: inline-block;
+    background: #f98635;
+    position: relative;
+    right: -200px;
+}
