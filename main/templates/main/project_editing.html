@@ -1,0 +1,48 @@
+{% extends 'main/common.html' %}
+{% load static %}
+
+{% block project_info %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <form method="post">
+        {% csrf_token %}
+        {% if project %}
+            <h2>Изменить проект</h2>
+        {% else %}
+            <h2>Создать проект</h2>
+        {% endif %}
+        <p>Имя проекта<br>
+            <input type="text" name="name" value="{{ project.name }}" size="40"></p>
+        <p>Описание<br>
+            <textarea name="description" class="textarea">{{ project.description }}</textarea></p>
+        <p>Срок выполнения<br>
+            <input type="datetime-local" name="deadline" value="{{ project.deadline }}"
+                   size="20"></p>
+
+        {% if project %}
+            <p>Подзадачи
+                {% if projects %}
+                    {% for child_project in projects %}
+                        {% if child_project.parent_project == project %}
+                            <p class="tab" id="{{ child_project.name }}">
+                                <button id="button_{{ child_project.name }}" type="button" onclick="show_details(
+                                        '{{ child_project.name }}',
+                                        '{{ child_project.description }}',
+                                        '{{ child_project.deadline }}');
+                                        ">></button>
+                                <span>{{ child_project.name }}</span>
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% endif %}
+        <p><button type="button" id="add_child_project_edit" onclick="child_project_form
+        ('add_child_project_edit', 'before_edit_btn');">Добавить подзадачу</button></p>
+        <p id="before_edit_btn" class="tab"></p>
+        {% if project %}
+            <p><button id="edit_project" name="edit_project" type="submit">Сохранить</button></p>
+        {% else %}
+            <p><button id="create_project" name="create_project" type="submit">Сохранить</button></p>
+        {% endif %}
+    </form>
+{% endblock %}

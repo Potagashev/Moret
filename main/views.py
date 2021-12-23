@@ -1,23 +1,83 @@
-from django.shortcuts import render
-from django.views import generic
+from django.shortcuts import render, get_object_or_404
 
 from main.models import Project, Task
 
 
-class IndexView(generic.ListView):
+def index(request):
+    tasks = Task.objects.all()
+    projects = Project.objects.all()
     template_name = 'main/index.html'
-    context_object_name = 'project'
 
-    def get_queryset(self):
-        return Project.objects.all()
+    if 'add_task_btn' in request.POST:
+        task = Task()
+        task.text = request.POST.get("add_task_input")
+        task.save()
 
-
-# def index(request):
-#     projects = Project.objects.all()
-#     tasks = Task.objects.all()
-#
-#     return render(request, 'main/index.html', {projects: 'projects', tasks: 'tasks'})
+    return render(request, template_name, {'projects': projects, 'tasks': tasks})
 
 
-def index_with_project(request):
-    return render(request, 'main/index_with_project.html')
+def index_with_project(request, project_id):
+    tasks = Task.objects.all()
+    projects = Project.objects.all()
+    project = get_object_or_404(Project, pk=project_id)
+    template_name = 'main/index_with_project.html'
+
+    if 'add_task_btn' in request.POST:
+        task = Task()
+        task.text = request.POST.get("add_task_input")
+        task.save()
+        # return HttpResponseRedirect(reverse("index"))
+
+    return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
+
+
+def project_editing(request, project_id):
+    tasks = Task.objects.all()
+    projects = Project.objects.all()
+    template_name = 'main/project_editing.html'
+    project = get_object_or_404(Project, pk=project_id)
+    # sub_tasks = Project.objects.get(child_projects)
+
+    if 'add_task_btn' in request.POST:
+        task = Task()
+        task.text = request.POST.get("add_task_input")
+        task.save()
+
+    if 'edit_project' in request.POST:
+        project.name = request.POST.get("name")
+        project.description = request.POST.get("description")
+        project.deadline = request.POST.get("deadline")
+        project.save()
+        return render(request, 'main/index_with_project.html',
+                      {'project': project, 'projects': projects, 'tasks': tasks})
+
+    if 'done_btn' in request.POST:
+        print('dddd')
+        new_project = Project()
+        new_project.name = request.POST.get('subproject_name')
+        new_project.description = request.POST.get('subproject_description')
+        new_project.deadline = request.POST.get('subproject_deadline')
+        new_project.parent_project = project
+        new_project.save()
+
+    return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
+
+
+def project_creating(request):
+    tasks = Task.objects.all()
+    projects = Project.objects.all()
+    template_name = 'main/project_editing.html'
+
+    if 'add_task_btn' in request.POST:
+        task = Task()
+        task.text = request.POST.get("add_task_input")
+        task.save()
+
+    if 'create_project' in request.POST:
+        newProject = Project()
+        newProject.name = request.POST.get("name")
+        newProject.description = request.POST.get("description")
+        newProject.deadline = request.POST.get("deadline")
+        newProject.save()
+
+    return render(request, template_name, {'projects': projects, 'tasks': tasks})

@@ -1,43 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Мои проекты</title>
-    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-</head>
-<body>
-    <header class="make-center"><h1>Moret</h1></header>
-    <div class="in-row">
-        <aside>
-            <h4>Мои проекты</h4>
-            {% if projects %}
-                <ul>
-                    {% for project in projects %}
-                        <li><a href="{% url 'main:index_with_project' project.id %}"
-                        >{{ project.name }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% else %}
-                <p>No projects are available.</p>
-            {% endif %}
-        </aside>
+{% extends 'main/common.html' %}
 
-        <div class="center blue">
-            <h2>Проект</h2>
-            <p>Опо аолоалпо овлатвалд влавалддл талвадль апап апапапв вава</p>
-        </div>
-
-        <div class="tasks">
-            <h4>Задачи</h4>
-            <ul>
-                <li><a>вавава</a></li>
-                <li><a>вавава</a></li>
-                <li><a>вавава</a></li>
-                <li><a>вавава</a></li>
-            </ul>
-        </div>
-
-    </div>
-</body>
-</html>
+{% block project_info %}
+    <h2>Здесь будут выводиться проекты</h2>
+{% endblock %}
