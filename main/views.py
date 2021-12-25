@@ -28,6 +28,15 @@ def index_with_project(request, project_id):
         task.save()
         # return HttpResponseRedirect(reverse("index"))
 
+    # короче идея в чем
+    # надо при отметке чекбокса вызывать скрипт, который будет прятать его
+    # и менять ему атрибут checked на true
+    # и при следующем сабмите переберем все задачи и при значении
+    # true этого атрибута эта задача будет удалена
+    for task in tasks:
+        if request.POST.get(task.text):
+            task.delete()
+
     return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
 
 

@@ -36,16 +36,22 @@
         <div class="tasks">
 
             <h4>Задачи</h4>
+            <form method="post" id="tasks">
 
-            {% if tasks %}
-                {% for task in tasks %}
-                    <input type="checkbox">{{ task.text }}<br>
-                {% endfor %}
-            {% else %}
-                <p>No tasks are available.</p>
-            {% endif %}
+                {% if tasks %}
+                    {% for task in tasks %}
+                        <div name="{{ task.text }}"
+                             id="{{ task.text }}"
+                             checked="false">
+                            <input type="checkbox"
+                                   onChange="hide_task('{{ task.text }}')"
+                            >{{ task.text }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No tasks are available.</p>
+                {% endif %}
 
-            <form method="post">
                 {% csrf_token %}
                 <p>Добавить проект<br>
                     <input type="text" name="add_task_input" value="" size="20">
@@ -59,4 +65,5 @@
 </body>
 <script src={% static 'main/js/add_child_project.js' %}></script>
 <script src={% static 'main/js/delete_project.js' %}></script>
+<script src={% static 'main/js/hide_task.js' %}></script>
 </html>
