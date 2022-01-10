@@ -8,6 +8,9 @@
 </head>
 <body>
     <header class="header"><label class="header-text">Moret</label></header>
+    <div>
+        <a href="#"><img class='profile-link' src={% static 'main/images/account.png' %}></a>
+    </div>
     <div class="sidebar-color">
         <div class="sidebar-text">
             <button class="button-add-project" onclick="window.location.href = {% url 'project_creating' %};">Добавить
@@ -35,12 +38,12 @@
         </div>
 
         <div class="tasks">
-            <p>Добавить задачу<br>
-                <input type="text" name="add_task_input" value="" size="20">
-                <button name="add_task_btn" type="submit">--></button>
-            </p>
             <form method="post" id="tasks">
                 {% csrf_token %}
+                <p>Добавить задачу<br>
+                    <input type="text" name="add_task_input" value="" size="20">
+                    <button name="add_task_btn" type="submit">--></button>
+                </p>
                 {% if tasks %}
                     {% for task in tasks %}
                         <div name="div_{{ task.text }}"
@@ -54,9 +57,6 @@
                 {% else %}
                     <p>No tasks are available.</p>
                 {% endif %}
-
-
-
             </form>
 
         </div>

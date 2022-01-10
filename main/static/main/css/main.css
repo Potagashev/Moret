@@ -29,8 +29,6 @@
 .nolinebreak_parent { white-space: nowrap; }
 .nolinebreak_child { display: inline-block; }
 
-
-
 .header {
     position: absolute;
     width: 1550px;
@@ -175,3 +173,10 @@ a:hover, a:visited {
     font-size: 24px;
 }
 
+.profile-link {
+    position: absolute;
+    width: 45px;
+    height: 42px;
+    left: 1455px;
+    top: 29px;
+}
