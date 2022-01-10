@@ -34,8 +34,10 @@ def index_with_project(request, project_id):
     # и при следующем сабмите переберем все задачи и при значении
     # true этого атрибута эта задача будет удалена
     for task in tasks:
-        if request.POST.get(task.text):
+        if request.POST.get(task.text) == 'on':
             task.delete()
+            print('task deleted')
+    tasks = Task.objects.all()
 
     return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
 

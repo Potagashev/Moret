@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
-    <header class="make-center"><h1><a href="{% url 'index' %}">Moret</a></h1></header>
-    <div class="in-row">
-
-        <aside>
-            <h4>Мои проекты</h4>
+    <header class="header"><label class="header-text">Moret</label></header>
+    <div class="sidebar-color">
+        <div class="sidebar-text">
+            <button class="button-add-project" onclick="window.location.href = {% url 'project_creating' %};">Добавить
+                проект</button>
             {% if projects %}
-                <ul>
+
+                <ul class="ul-sidebar">
                     {% for project in projects %}
                         {% if project.parent_project == null %}
-                            <li><a href="{% url 'index_with_project' project.id %}"
+                            <li class="li-sidebar"><a class='a-sidebar' href="{% url 'index_with_project' project.id %}"
                             >{{ project.name }}</a></li>
                         {% endif %}
                     {% endfor %}
@@ -24,9 +25,9 @@
             {% else %}
                 <p>No projects are available.</p>
             {% endif %}
-            <button onclick="window.location.href = {% url 'project_creating' %};">Добавить
-                проект</button>
-        </aside>
+        </div>
+    </div>
+    <div class="in-row">
 
         <div class="center blue" id="project_info">
             {% block project_info %}
@@ -34,17 +35,19 @@
         </div>
 
         <div class="tasks">
-
-            <h4>Задачи</h4>
+            <p>Добавить задачу<br>
+                <input type="text" name="add_task_input" value="" size="20">
+                <button name="add_task_btn" type="submit">--></button>
+            </p>
             <form method="post" id="tasks">
-
+                {% csrf_token %}
                 {% if tasks %}
                     {% for task in tasks %}
-                        <div name="{{ task.text }}"
-                             id="{{ task.text }}"
-                             checked="false">
+                        <div name="div_{{ task.text }}"
+                             id="{{ task.text }}">
                             <input type="checkbox"
                                    onChange="hide_task('{{ task.text }}')"
+                                   name="{{ task.text }}"
                             >{{ task.text }}
                         </div>
                     {% endfor %}
@@ -52,11 +55,8 @@
                     <p>No tasks are available.</p>
                 {% endif %}
 
-                {% csrf_token %}
-                <p>Добавить проект<br>
-                    <input type="text" name="add_task_input" value="" size="20">
-                    <button name="add_task_btn" type="submit">--></button>
-                </p>
+
+
             </form>
 
         </div>

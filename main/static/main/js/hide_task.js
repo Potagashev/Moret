@@ -7,5 +7,4 @@
 function hide_task(id){
     let input = document.getElementById(id)
     input.style = "display:none;"
-    input.setAttribute(checked, true)
 }

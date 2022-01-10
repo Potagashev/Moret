@@ -6,19 +6,21 @@
     flex-direction: row;
 }
 .center {
-  margin: 15px 20px 15px 20px;
+  margin: 92px 32px 14px 312px;
   width: 60%;
 }
 .blue {
   padding: 12px 24px;
-  background: #2196f3;
 }
 
 .tasks {
-    display: inline-block;
-    background: #f98635;
-    position: relative;
-    right: -30px;
+    position: absolute;
+    width: 230px;
+    height: 1120px;
+    left: 1320px;
+    top: 100px;
+
+    background: #7A2D1E;
 }
 .textarea {
     margin: 0px; width: 400px; height: 80px;
@@ -26,3 +28,150 @@
 .tab { margin-left: 40px; }
 .nolinebreak_parent { white-space: nowrap; }
 .nolinebreak_child { display: inline-block; }
+
+
+
+.header {
+    position: absolute;
+    width: 1550px;
+    height: 100px;
+    left: 0px;
+    top: 0px;
+
+    background: #DF9E66;
+}
+
+.header-text {
+    position: absolute;
+    width: 97px;
+    height: 42px;
+    left: 40px;
+    top: 29px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #FFFFFF;
+}
+
+.sidebar-color {
+    position: absolute;
+    width: 320px;
+    height: 1140px;
+    left: 0px;
+    top: 100px;
+
+    background: #355469;
+}
+
+.sidebar-text {
+    position: absolute;
+    width: 240px;
+    height: 56px;
+    left: 40px;
+    top: 20px;
+
+    font-family: Arial;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+.ul-sidebar {
+    padding: 0;
+    width: 100%;
+}
+
+.li-sidebar {
+    display: inline;
+}
+
+.a-sidebar {
+    outline: none;
+    text-decoration: none;
+    display: inline-block;
+    width: 100.5%;
+    margin-right: 0.625%;
+    text-align: center;
+    line-height: 3;
+    color: white;
+}
+
+li:last-child a {
+    margin-right: 0;
+}
+a:hover, a:visited {
+    background: #2B4353;
+}
+
+.button-add-project {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #DF9E66;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: Arial;
+
+    width: 240px;
+    height: 48px;
+    left: 40px;
+    top: 388px;
+}
+
+.button-delete-project {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #DF9E66;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: Arial;
+
+    width: 140px;
+    height: 48px;
+    left: 379px;
+    top: 140px;
+}
+
+.button-edit-project {
+    appearance: none;
+    border: 0;
+    border-radius: 5px;
+    background: #DF9E66;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-family: Arial;
+
+    width: 220px;
+    height: 48px;
+    left: 540px;
+    top: 140px;
+}
+
+.common-text-style {
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.project-name {
+    font-size: 36px;
+}
+
+.description {
+    font-size: 24px;
+}
+
+.deadline {
+    font-size: 24px;
+}
+
