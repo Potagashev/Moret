@@ -195,6 +195,6 @@ color: #FFFFFF;
     text-decoration : none;
     outline: none;
 }
-sign-in:hover {
-     background: #DF9E66;
+.sign-in:hover {
+     background: none;
 }
