@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.shortcuts import render, get_object_or_404
 
 from main.models import Project, Task
@@ -57,13 +59,15 @@ def project_editing(request, project_id):
     if 'edit_project' in request.POST:
         project.name = request.POST.get("name")
         project.description = request.POST.get("description")
-        project.deadline = request.POST.get("deadline")
+        if request.POST.get("deadline") == '':
+            project.deadline = None
+        else:
+            project.deadline = request.POST.get("deadline")
         project.save()
         return render(request, 'main/index_with_project.html',
                       {'project': project, 'projects': projects, 'tasks': tasks})
 
     if 'done_btn' in request.POST:
-        print('dddd')
         new_project = Project()
         new_project.name = request.POST.get('subproject_name')
         new_project.description = request.POST.get('subproject_description')
@@ -85,10 +89,14 @@ def project_creating(request):
         task.save()
 
     if 'create_project' in request.POST:
-        newProject = Project()
-        newProject.name = request.POST.get("name")
-        newProject.description = request.POST.get("description")
-        newProject.deadline = request.POST.get("deadline")
-        newProject.save()
+        if request.POST.get("name") != '':
+            newProject = Project()
+            newProject.name = request.POST.get("name")
+            newProject.description = request.POST.get("description")
+            if request.POST.get("deadline") == '':
+                newProject.deadline = None
+            else:
+                newProject.deadline = request.POST.get("deadline")
+            newProject.save()
 
     return render(request, template_name, {'projects': projects, 'tasks': tasks})
