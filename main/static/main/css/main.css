@@ -180,3 +180,21 @@ a:hover, a:visited {
     left: 1455px;
     top: 29px;
 }
+.sign-in{
+    position: absolute;
+width: 69px;
+height: 28px;
+left: 1358px;
+top: 25px;
+font-family: Arial;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 28px;
+color: #FFFFFF;
+    text-decoration : none;
+    outline: none;
+}
+sign-in:hover {
+     background: #DF9E66;
+}
