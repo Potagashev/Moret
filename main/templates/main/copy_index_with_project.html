@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мои проекты</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+    <header class="make-center"><h1><a href="{% url 'index' %}">Moret</a></h1></header>
+    <div class="in-row">
+
+        <aside>
+            <h4>Мои проекты</h4>
+            {% if projects %}
+                <ul>
+                    {% for project in projects %}
+                        {% if project.parent_project == null %}
+                            <li><a href="{% url 'index_with_project' project.id %}"
+                            >{{ project.name }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No projects are available.</p>
+            {% endif %}
+            <button onclick="window.location.href = {% url 'project_creating' %};">Добавить
+                проект</button>
+        </aside>
+
+        <div class="center blue" id="project_info">
+            {% block project_info %}
+            {% endblock %}
+        </div>
+
+        <div class="tasks">
+
+            <h4>Задачи</h4>
+            <form method="post" id="tasks">
+                {% csrf_token %}
+                {% if tasks %}
+                    {% for task in tasks %}
+                        <div name="div_{{ task.text }}"
+                             id="{{ task.text }}">
+                            <input type="checkbox"
+                                   onChange="hide_task('{{ task.text }}')"
+                                   name="{{ task.text }}"
+                            >{{ task.text }}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No tasks are available.</p>
+                {% endif %}
+
+
+                <p>Добавить проект<br>
+                    <input type="text" name="add_task_input" value="" size="20">
+                    <button name="add_task_btn" type="submit">--></button>
+                </p>
+            </form>
+
+        </div>
+
+    </div>
+</body>
+<script src={% static 'main/js/add_child_project.js' %}></script>
+<script src={% static 'main/js/delete_project.js' %}></script>
+<script src={% static 'main/js/hide_task.js' %}></script>
+</html>
