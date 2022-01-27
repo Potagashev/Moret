@@ -1,9 +1,15 @@
-function delete_project(){
-    if(confirm('Вы уверены, что хотите удалить этот проект?')) {
-        alert('sdsd')
-        // короче можно создать инпут и никуда не его не вставлять,
-        // и при конфирме менять его значение,
-        // и в бэкенде проверять его значение через if POST...
-        // и если значение совпадает, то удаляем проект
-    }
+function delete_project(project_id){
+    let form = document.createElement('form');
+    form.method = 'GET';
+
+    input = document.createElement('input')
+    input.name = project_id
+    input.hidden
+
+    form.append(input)
+
+    // перед отправкой формы, её нужно вставить в документ
+    document.body.append(form);
+
+    form.submit();
 }

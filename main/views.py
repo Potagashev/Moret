@@ -1,4 +1,5 @@
 from django.contrib.auth import logout, login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView
@@ -10,8 +11,9 @@ from main.forms import SignUpUserForm, LoginUserForm
 from main.models import Project, Task
 
 
+# если не авторизован, редирект на авторизацию
+@login_required(login_url='login')
 def index(request):
-
     tasks = Task.objects.filter(user=request.user)
     projects = Project.objects.filter(user=request.user)
     template_name = 'main/index.html'
@@ -30,6 +32,11 @@ def index_with_project(request, project_id):
     projects = Project.objects.filter(user=request.user)
     project = get_object_or_404(Project, pk=project_id)
     template_name = 'main/index_with_project.html'
+
+    if str(project_id) in request.GET:
+        project.delete()
+        template_name = 'main/index.html'
+        return render(request, template_name, {'projects': projects, 'tasks': tasks})
 
     if 'add_task_btn' in request.POST:
         task = Task()
@@ -79,6 +86,7 @@ def project_editing(request, project_id):
         new_project.name = request.POST.get('subproject_name')
         new_project.description = request.POST.get('subproject_description')
         new_project.deadline = request.POST.get('subproject_deadline')
+        new_project.user = User.objects.get(username=request.user)
         new_project.parent_project = project
         new_project.save()
 
