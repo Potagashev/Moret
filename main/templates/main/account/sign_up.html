@@ -3,12 +3,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Вход</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
 
-    <h1>Вход</h1>
+    <h1>Регистрация</h1>
 
     <form method="post">
         {% csrf_token %}
@@ -18,9 +18,9 @@
     <div class="form-error">{{ f.errors }}</div>
     {% endfor %}
 
-        <button type="submit">Войти</button><br>
-        Нет учетной записи?
-        <a href="{% url 'sign_up' %}">Регистрация</a>
+        <button type="submit">Регистрация</button><br>
+        Уже есть учетная запись?
+        <a href="{% url 'login' %}">Войти</a>
     </form>
 
 </body>
