@@ -45,16 +45,10 @@ def index_with_project(request, project_id):
         task.save()
         # return HttpResponseRedirect(reverse("index"))
 
-    # короче идея в чем
-    # надо при отметке чекбокса вызывать скрипт, который будет прятать его
-    # и менять ему атрибут checked на true
-    # и при следующем сабмите переберем все задачи и при значении
-    # true этого атрибута эта задача будет удалена
     for task in tasks:
-        if request.POST.get(task.text) == 'on':
+        if request.POST.get(str(task.id)) == 'on':
             task.delete()
-            print('task deleted')
-    tasks = Task.objects.all()
+    tasks = Task.objects.filter(user=request.user)
 
     return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
 
@@ -82,13 +76,13 @@ def project_editing(request, project_id):
 
     if 'done_btn' in request.POST:
         print('dddd')
-        new_project = Project()
-        new_project.name = request.POST.get('subproject_name')
-        new_project.description = request.POST.get('subproject_description')
-        new_project.deadline = request.POST.get('subproject_deadline')
-        new_project.user = User.objects.get(username=request.user)
-        new_project.parent_project = project
-        new_project.save()
+        subproject = Project()
+        subproject.name = request.POST.get('subproject_name')
+        subproject.description = request.POST.get('subproject_description')
+        subproject.deadline = request.POST.get('subproject_deadline')
+        subproject.user = User.objects.get(username=request.user)
+        subproject.parent_project = project
+        subproject.save()
 
     return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
 

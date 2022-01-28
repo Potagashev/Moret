@@ -18,4 +18,20 @@
     <h2 class="common-text-style project-name">{{ project.name }}</h2>
     <p class="common-text-style description">{{ project.description }}</p>
     <p class="common-text-style deadline">Deadline: {{ project.deadline }}</p>
+    <p>Подзадачи
+        {% if projects %}
+            {% for child_project in projects %}
+                {% if child_project.parent_project == project %}
+                    <p class="tab" id="{{ child_project.name }}">
+                        <button id="button_{{ child_project.name }}" type="button" onclick="show_details(
+                                '{{ child_project.name }}',
+                                '{{ child_project.description }}',
+                                '{{ child_project.deadline }}');
+                                ">></button>
+                        <span>{{ child_project.name }}</span>
+                    </p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </p>
 {% endblock %}

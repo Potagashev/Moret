@@ -8,7 +8,6 @@ function delete_project(project_id){
 
     form.append(input)
 
-    // перед отправкой формы, её нужно вставить в документ
     document.body.append(form);
 
     form.submit();

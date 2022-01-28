@@ -45,16 +45,16 @@
             <form method="post" id="tasks">
                 {% csrf_token %}
                 <p>Добавить задачу<br>
-                    <input type="text" name="add_task_input" value="" size="20">
+                    <input type="text" name="add_task_input" id="add_task_input" value="" size="20">
                     <button name="add_task_btn" type="submit">--></button>
                 </p>
                 {% if tasks %}
                     {% for task in tasks %}
-                        <div name="div_{{ task.text }}"
-                             id="{{ task.text }}">
+                        <div name="div_{{ task.name }}"
+                             id="{{ task.id }}">
                             <input type="checkbox"
-                                   onChange="hide_task('{{ task.text }}')"
-                                   name="{{ task.text }}"
+                                   onChange="hide_task('{{ task.id }}')"
+                                   name="{{ task.id }}"
                             >{{ task.text }}
                         </div>
                     {% endfor %}
@@ -71,4 +71,8 @@
 <script src={% static 'main/js/delete_project.js' %}></script>
 <script src={% static 'main/js/hide_task.js' %}></script>
 <script src={% static 'main/js/modal_window.js' %}></script>
+<script src={% static 'main/js/delete_task.js' %}></script>
+<script src={% static 'main/js/save_data_in_inputs.js' %}></script>
+
+
 </html>
