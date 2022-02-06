@@ -1,7 +1,7 @@
 {% extends 'main/common.html' %}
 
 {% block project_info %}
-    <a class="js-open-modal">Удалить</a>
+    <a class="button-delete-project">Удалить</a>
 
     <div class="modal" data-modal="1">
         <!--   Svg иконка для закрытия окна (крестик) -->
@@ -18,7 +18,7 @@
     <h2 class="common-text-style project-name">{{ project.name }}</h2>
     <p class="common-text-style description">{{ project.description }}</p>
     <p class="common-text-style deadline">Deadline: {{ project.deadline }}</p>
-    <p>Подзадачи
+    <p class="undertasks">Подзадачи
         {% if projects %}
             {% for child_project in projects %}
                 {% if child_project.parent_project == project %}

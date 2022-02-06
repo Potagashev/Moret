@@ -10,7 +10,7 @@
     <header class="header"><a href="{% url 'index' %}" class="header-text">Moret</a></header>
     <div class='profile-link'>
         {% if request.user.is_authenticated %}
-            {{user.username}} | <a href="{% url 'logout' %}">Выйти</a>
+         {{user.username}} | <a class="link" href="{% url 'logout' %}">Выйти</a>
         {% else %}
             <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'sign_up' %}">Регистрация</a>
         {% endif %}
@@ -44,13 +44,13 @@
         <div class="tasks">
             <form method="post" id="tasks">
                 {% csrf_token %}
-                <p>Добавить задачу<br>
-                    <input type="text" name="add_task_input" id="add_task_input" value="" size="20">
-                    <button name="add_task_btn" type="submit">--></button>
+                <p class="add-task">Добавить задачу<br></p>
+                    <p><input type="text" name="add_task_input" id="add_task_input" value="" size="26">
+                    <button name="add_task_btn" type="submit2">Добавить</button>
                 </p>
                 {% if tasks %}
                     {% for task in tasks %}
-                        <div name="div_{{ task.name }}"
+                        <div class="add-task" name="div_{{ task.name }}"
                              id="{{ task.id }}">
                             <input type="checkbox"
                                    onChange="hide_task('{{ task.id }}')"

@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
-
+<div class="wrapper">
     <h1>Регистрация</h1>
 
     <form method="post">
         {% csrf_token %}
 
     {% for f in form %}
-    <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+    <p><label class="input" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
     <div class="form-error">{{ f.errors }}</div>
     {% endfor %}
 
         <button type="submit">Регистрация</button><br>
-        Уже есть учетная запись?
-        <a href="{% url 'login' %}">Войти</a>
+        <div class="no-user">Уже есть учетная запись?</div>
+        <div ><a class="button" href="{% url 'login' %}">Войти</a></div>
     </form>
-
+</div>
 </body>
 </html>

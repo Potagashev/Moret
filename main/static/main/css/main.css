@@ -1,3 +1,29 @@
+@font-face {
+	font-family: 'ProximaNovaRegular';
+	src: url("../font/Proxima Nova Regular.otf") format("opentype");
+    ) format("opentype");
+	font-weight: normal;
+	font-style: normal
+}
+
+@font-face {
+	font-family: 'ProximaNovaBold';
+	src: url("../font/Proxima Nova Bold.otf") format("opentype");
+	font-weight: bold;
+	font-style: normal
+}
+@font-face {
+	font-family: 'ProximaNovaLight';
+	src: url("../font/Proxima Nova Light.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal
+}
+@font-face {
+	font-family: 'ProximaNovaThin';
+	src: url("../font/Proxima Nova Thin.otf") format("opentype");
+	font-weight: 300;
+	font-style: normal
+}
 .make-center {
     text-align: center
 }
@@ -12,6 +38,11 @@
 .blue {
   padding: 12px 24px;
 }
+.add-task{
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
 
 .tasks {
     position: absolute;
@@ -19,13 +50,16 @@
     height: 1120px;
     left: 1320px;
     top: 100px;
-
+    font-family: ProximaNovaRegular;
     background: #7A2D1E;
 }
+
 .textarea {
     margin: 0px; width: 400px; height: 80px;
 }
-.tab { margin-left: 40px; }
+.tab {
+    font-family: ProximaNovaRegular;
+    margin-left: 40px; }
 .nolinebreak_parent { white-space: nowrap; }
 .nolinebreak_child { display: inline-block; }
 
@@ -38,6 +72,12 @@
 
     background: #DF9E66;
 }
+.projectedit-title{
+    font-family: ProximaNovaBold;
+}
+.projectedit-title2{
+    font-family: ProximaNovaRegular;
+}
 
 .header-text {
     position: absolute;
@@ -45,8 +85,8 @@
     height: 42px;
     left: 40px;
     top: 29px;
-
-    font-family: Arial;
+    text-decoration: none;
+    font-family: ProximaNovaBold;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -99,6 +139,10 @@
     text-align: center;
     line-height: 3;
     color: white;
+    font-family: ProximaNovaRegular;
+}
+.project-title{
+    font-family: ProximaNovaRegular;
 }
 
 li:last-child a {
@@ -116,8 +160,8 @@ a:hover, a:visited {
     color: #fff;
     padding: 8px 16px;
     font-size: 16px;
-    font-family: Arial;
-
+    font-family: ProximaNovaRegular;
+margin-top: -5px;
     width: 240px;
     height: 48px;
     left: 40px;
@@ -132,8 +176,8 @@ a:hover, a:visited {
     color: #fff;
     padding: 8px 16px;
     font-size: 16px;
-    font-family: Arial;
-
+    font-family: ProximaNovaRegular;
+ margin-top: 8px;
     width: 140px;
     height: 48px;
     left: 379px;
@@ -148,19 +192,21 @@ a:hover, a:visited {
     color: #fff;
     padding: 8px 16px;
     font-size: 16px;
-    font-family: Arial;
-
-    width: 220px;
-    height: 48px;
+    font-family: ProximaNovaRegular;
+    margin-top: 8px;
+    width: 138px;
+    height: 38px;
     left: 540px;
     top: 140px;
 }
 
 .common-text-style {
-    font-family: Arial;
-    font-weight: bold;
+    font-family: ProximaNovaRegular;
+        margin-top: 40px;
 }
-
+.undertasks{
+font-family: ProximaNovaRegular;
+}
 .project-name {
     font-size: 36px;
 }
@@ -177,6 +223,13 @@ a:hover, a:visited {
     position: absolute;
     left: 1350px;
     top: 37px;
+    font-family: ProximaNovaRegular;
+
+}
+.link{
+    text-decoration: none;
+    font-family: ProximaNovaRegular;
+    color: white;
 }
 
 .form-input {
@@ -276,7 +329,7 @@ a:hover, a:visited {
 
 /* Стили для кнопок. Мы ведь порядочные разработчики, негоже простые ссылки оставлять */
 
-a {
+/*a {
    padding: 20px;
    display: inline-block;
    text-decoration: none;
@@ -284,4 +337,96 @@ a {
    margin: 10px;
    color: #fff;
    border-radius: 3px;
+}*/
+button[type="submit"] {
+  background: #df9e66;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+    font-family: "ProximaNovaRegular";
+    width: 355px;
+    height: 50px;
+}
+button[type="submit2"] {
+  background: #df9e66;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+    font-family: "ProximaNovaRegular";
+    width: 230px;
+    height: 50px;
+    margin-top: 20px;
+}
+.sign-in-pass {
+  float: left;
+  color: black;
+  font-size: 1.3em;
+}
+.sign-in-mail {
+  float: left;
+  color: black;
+  font-size: 1.3em;
+}
+.wrapper {
+  width: 300px;
+  margin: 12% auto;
+    font-family: "ProximaNovaRegular";
+}
+.button {
+  float: right;
+  color: #7f8084;
+  border: 1px solid #22272d;
+  padding: 7px 15px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  cursor: pointer;
+    margin-top: 20px;
+    margin-right: -55px;
+     text-decoration: none
+
+}
+.no-user {
+    font-size: 0.8em;
+    color: #7f8084;
+    margin-top: 20px;
+    float: left;
+    padding: 3px 0;
+
+
+}
+.input {
+    width: 100%;
+    padding: 5px;
+    height: 40px;
+    border-radius: 3px;
+    margin: 5px 0;
+    outline: none;
+
+}
+input[type="text"] {
+    background: transparent;
+    border: 2px solid #22272d;
+    padding-left: 45px;
+    color: #df9e66;
+    font-family: "ProximaNovaLight";
+
+}
+input[type="password"] {
+    background: transparent;
+    border: 2px solid #22272d;
+    padding-left: 45px;
+    color: #df9e66;
+}
+
+
+input[type="email"] {
+    background: transparent;
+    border: 2px solid #22272d;
+    padding-left: 45px;
+    color: #df9e66;
+
 }

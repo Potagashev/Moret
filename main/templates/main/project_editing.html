@@ -6,15 +6,15 @@
     <form method="post">
         {% csrf_token %}
         {% if project %}
-            <h2>Изменить проект</h2>
+            <h2 class="projectedit-title">Изменить проект</h2>
         {% else %}
-            <h2>Создать проект</h2>
+            <h2 class="projectedit-title">Создать проект</h2>
         {% endif %}
-        <p>Имя проекта<br>
+        <p class="projectedit-title2">Имя проекта<br>
             <input type="text" name="name" value="{{ project.name }}" size="40"></p>
-        <p>Описание<br>
+        <p class="projectedit-title2">Описание<br>
             <textarea name="description" class="textarea">{{ project.description }}</textarea></p>
-        <p>Срок выполнения<br>
+        <p class="projectedit-title2">Срок выполнения<br>
             <input type="datetime-local" name="deadline" value="{{ project.deadline }}"
                    size="20"></p>
 
@@ -36,7 +36,7 @@
                 {% endif %}
             </p>
         {% endif %}
-        <p><button type="button" id="add_child_project_edit" onclick="child_project_form
+        <p><button type="submit" id="add_child_project_edit" onclick="child_project_form
         ('add_child_project_edit', 'before_edit_btn');">Добавить подзадачу</button></p>
         <p id="before_edit_btn" class="tab"></p>
         {% if project %}
