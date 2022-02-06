@@ -24,6 +24,11 @@ def index(request):
         task.user = User.objects.get(username=request.user)
         task.save()
 
+    for task in tasks:
+        if request.POST.get(str(task.id)) == 'on':
+            task.delete()
+    tasks = Task.objects.filter(user=request.user)
+
     return render(request, template_name, {'projects': projects, 'tasks': tasks})
 
 
@@ -84,6 +89,11 @@ def project_editing(request, project_id):
         subproject.parent_project = project
         subproject.save()
 
+    for task in tasks:
+        if request.POST.get(str(task.id)) == 'on':
+            task.delete()
+    tasks = Task.objects.filter(user=request.user)
+
     return render(request, template_name, {'project': project, 'projects': projects, 'tasks': tasks})
 
 
@@ -105,6 +115,11 @@ def project_creating(request):
         newProject.description = request.POST.get("description")
         newProject.deadline = request.POST.get("deadline")
         newProject.save()
+
+    for task in tasks:
+        if request.POST.get(str(task.id)) == 'on':
+            task.delete()
+    tasks = Task.objects.filter(user=request.user)
 
     return render(request, template_name, {'projects': projects, 'tasks': tasks})
 

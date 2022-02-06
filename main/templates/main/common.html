@@ -45,7 +45,7 @@
             <form method="post" id="tasks">
                 {% csrf_token %}
                 <p class="add-task">Добавить задачу<br></p>
-                    <p><input type="text" name="add_task_input" id="add_task_input" value="" size="26">
+                    <p><input type="text" name="add_task_input" id="add_task_input" required value="" size="26">
                     <button name="add_task_btn" type="submit2">Добавить</button>
                 </p>
                 {% if tasks %}
