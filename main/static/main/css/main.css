@@ -24,59 +24,24 @@
 	font-weight: 300;
 	font-style: normal
 }
-.make-center {
-    text-align: center
-}
-.in-row{
-    display: flex;
-    flex-direction: row;
-}
-.center {
-  margin: 92px 32px 14px 312px;
-  width: 60%;
-}
-.blue {
-  padding: 12px 24px;
-}
-.add-task{
-    color: white;
-    font-size: 20px;
-    margin-left: 10px;
-}
 
-.tasks {
-    position: absolute;
-    width: 230px;
-    height: 1120px;
-    left: 1320px;
-    top: 100px;
+.links {
+    border-radius: 5px;
+    background: #DF9E66;
+    color: #fff;
+    padding: 8px 16px;
+    font-size: 16px;
     font-family: ProximaNovaRegular;
-    background: #7A2D1E;
 }
-
-.textarea {
-    margin: 0px; width: 400px; height: 80px;
-}
-.tab {
-    font-family: ProximaNovaRegular;
-    margin-left: 40px; }
-.nolinebreak_parent { white-space: nowrap; }
-.nolinebreak_child { display: inline-block; }
 
 .header {
     position: absolute;
-    width: 1550px;
-    height: 100px;
+    width: 100%;
+    height: 80px;
     left: 0px;
     top: 0px;
 
     background: #DF9E66;
-}
-.projectedit-title{
-    font-family: ProximaNovaBold;
-}
-.projectedit-title2{
-    font-family: ProximaNovaRegular;
 }
 
 .header-text {
@@ -84,7 +49,7 @@
     width: 97px;
     height: 42px;
     left: 40px;
-    top: 29px;
+    top: 21px;
     text-decoration: none;
     font-family: ProximaNovaBold;
     font-style: normal;
@@ -95,114 +60,142 @@
     color: #FFFFFF;
 }
 
+.profile-link {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    font-family: ProximaNovaRegular;
+    font-size: 25px;
+}
+
+.shouldnt-be-changed {
+    text-decoration: None;
+    color: #FFFFFF;
+}
+
+.shouldnt-be-changed:hover, .shouldnt-be-changed:visited {
+    background: #DF9E66;
+}
+
+.project-title{
+    font-family: ProximaNovaRegular;
+}
+
+/*##### SIDEBAR ##############################################*/
+
 .sidebar-color {
     position: absolute;
-    width: 320px;
-    height: 1140px;
+    width: 21%;
+    height: 100%;
     left: 0px;
-    top: 100px;
+    top: 80px;
 
     background: #355469;
 }
 
-.sidebar-text {
-    position: absolute;
-    width: 240px;
-    height: 56px;
-    left: 40px;
-    top: 20px;
-
-    font-family: Arial;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 24px;
-    line-height: 28px;
-
-    color: #FFFFFF;
+.add-project {
+    font-size: 20px;
+    padding: 15px 50px;
+    position: relative;
+    top: 35px;
+    left: 30px;
 }
 
 .ul-sidebar {
     padding: 0;
     width: 100%;
+    position: relative;
+    top: 25px;
 }
 
 .li-sidebar {
-    display: inline;
+    line-height: 3;
 }
 
 .a-sidebar {
-    outline: none;
     text-decoration: none;
     display: inline-block;
-    width: 100.5%;
-    margin-right: 0.625%;
-    text-align: center;
-    line-height: 3;
+
+    position: relative;
+    top: 30px;
+    width: 90%;
+    text-align: left;
+    line-height: 1.2;
     color: white;
     font-family: ProximaNovaRegular;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
 }
-.project-title{
+
+.a-sidebar:hover, a-sidebar:visited {
+    background: #304e5f;
+}
+
+/*################ center-block ########################################*/
+
+.del-edit {
+    text-align: right;
+    position: relative;
+    top: 15px;
+}
+
+.project-info {
+    position: relative;
+    margin-left: 21.5%;
+    margin-top: 80px;
+    width: 60%;
+    padding-left: 40px;
+}
+
+/*################### TASKS ####################################*/
+
+.add-task{
+    color: white;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.tasks {
+    position: absolute;
+    right:0px;
+    width: 15%;
+    height: 100%;
+    top: 80px;
     font-family: ProximaNovaRegular;
+    background: #7A2D1E;
 }
+
+/*######################################################################*/
+
+
+.make-center {
+    text-align: center
+}
+.in-row{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.textarea {
+    margin: 0px; width: 400px; height: 80px;
+}
+
+.nolinebreak_parent { white-space: nowrap; }
+.nolinebreak_child { display: inline-block; }
+
 
 li:last-child a {
     margin-right: 0;
 }
 a:hover, a:visited {
-    background: #2B4353;
-}
-
-.button-add-project {
-    appearance: none;
-    border: 0;
-    border-radius: 5px;
-    background: #DF9E66;
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-family: ProximaNovaRegular;
-margin-top: -5px;
-    width: 240px;
-    height: 48px;
-    left: 40px;
-    top: 388px;
-}
-
-.button-delete-project {
-    appearance: none;
-    border: 0;
-    border-radius: 5px;
-    background: #DF9E66;
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-family: ProximaNovaRegular;
- margin-top: 8px;
-    width: 140px;
-    height: 48px;
-    left: 379px;
-    top: 140px;
-}
-
-.button-edit-project {
-    appearance: none;
-    border: 0;
-    border-radius: 5px;
-    background: #DF9E66;
-    color: #fff;
-    padding: 8px 16px;
-    font-size: 16px;
-    font-family: ProximaNovaRegular;
-    margin-top: 8px;
-    width: 138px;
-    height: 38px;
-    left: 540px;
-    top: 140px;
+    background: #c6895d;
 }
 
 .common-text-style {
     font-family: ProximaNovaRegular;
-        margin-top: 40px;
 }
 .undertasks{
 font-family: ProximaNovaRegular;
@@ -216,21 +209,10 @@ font-family: ProximaNovaRegular;
 }
 
 .deadline {
-    font-size: 24px;
+    font-size: 18px;
 }
 
-.profile-link {
-    position: absolute;
-    left: 1350px;
-    top: 37px;
-    font-family: ProximaNovaRegular;
 
-}
-.link{
-    text-decoration: none;
-    font-family: ProximaNovaRegular;
-    color: white;
-}
 
 .form-input {
     width: 300px;
@@ -253,6 +235,7 @@ font-family: ProximaNovaRegular;
     min-width: 200px;
     font-size: 16px;
 }
+
 
 
 

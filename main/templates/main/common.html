@@ -7,18 +7,19 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
-    <header class="header"><a href="{% url 'index' %}" class="header-text">Moret</a></header>
+    <header class="header"><a href="{% url 'index' %}" class="header-text shouldnt-be-changed">Moret</a></header>
     <div class='profile-link'>
         {% if request.user.is_authenticated %}
-         {{user.username}} | <a class="link" href="{% url 'logout' %}">Выйти</a>
+         {{user.username}} | <a class="shouldnt-be-changed" href="{% url 'logout' %}">Выйти</a>
         {% else %}
             <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'sign_up' %}">Регистрация</a>
         {% endif %}
     </div>
+    <div class="in-row">
     <div class="sidebar-color">
-        <div class="sidebar-text">
-            <button class="button-add-project" onclick="window.location.href = {% url 'project_creating' %};">Добавить
-                проект</button>
+        <div>
+            <a class="links add-project" onclick="window.location.href = {% url 'project_creating' %};">Добавить
+                проект</a>
             {% if projects %}
 
                 <ul class="ul-sidebar">
@@ -34,9 +35,8 @@
             {% endif %}
         </div>
     </div>
-    <div class="in-row">
 
-        <div class="center blue" id="project_info">
+        <div class="project-info" id="project_info">
             {% block project_info %}
             {% endblock %}
         </div>

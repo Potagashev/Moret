@@ -1,37 +1,44 @@
 {% extends 'main/common.html' %}
 
 {% block project_info %}
-    <a class="js-open-modal button-delete-project">Удалить</a>
+    <div class="del-edit">
+        <div style="text-align: left; font-family: ProximaNovaRegular; font-size: 10px">Выполнить до<br>
+        <label class="common-text-style deadline">{{ project.deadline }}</label></div>
 
-    <div class="modal" data-modal="1">
-        <!--   Svg иконка для закрытия окна (крестик) -->
-        <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
-        <p class="modal__title">Вы уверены, что хотите удалить этот проект?</p>
-        <div><a class="js-modal-close" onclick="delete_project({{ project.id }})">Да</a>
-            <a class="js-modal-close">Нет</a></div>
+        <a class="js-open-modal links">Удалить</a>
+
+        <div class="modal" data-modal="1">
+            <!--   Svg иконка для закрытия окна (крестик) -->
+            <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg"               viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+            <p class="modal__title">Вы уверены, что хотите удалить этот проект?</p>
+            <div><a class="js-modal-close" onclick="delete_project({{ project.id }})">Да</a>
+                <a class="js-modal-close">Нет</a></div>
+        </div>
+        <!-- темный фон под модальным окном -->
+        <div class="overlay js-overlay-modal"></div>
+
+        <a class='links' style="margin-left: 10px;" onclick="document.location=
+                '{% url 'project_editing' project.id %}'">Редактировать</a>
     </div>
-    <!-- темный фон под модальным окном -->
-    <div class="overlay js-overlay-modal"></div>
 
-    <button class='button-edit-project' onclick="document.location='{% url 'project_editing' project.id %}'">Редактировать</button>
-
-    <h2 class="common-text-style project-name">{{ project.name }}</h2>
-    <p class="common-text-style description">{{ project.description }}</p>
-    <p class="common-text-style deadline">Deadline: {{ project.deadline }}</p>
-    <p class="undertasks">Подзадачи
-        {% if projects %}
-            {% for child_project in projects %}
-                {% if child_project.parent_project == project %}
-                    <p class="tab" id="{{ child_project.name }}">
-                        <button id="button_{{ child_project.name }}" type="button" onclick="show_details(
-                                '{{ child_project.name }}',
-                                '{{ child_project.description }}',
-                                '{{ child_project.deadline }}');
-                                ">></button>
-                        <span>{{ child_project.name }}</span>
-                    </p>
-                {% endif %}
-            {% endfor %}
-        {% endif %}
-    </p>
+    <div>
+        <h2 class="common-text-style project-name">{{ project.name }}</h2>
+        <p class="common-text-style description">{{ project.description }}</p>
+        <p class="undertasks">Подзадачи
+            {% if projects %}
+                {% for child_project in projects %}
+                    {% if child_project.parent_project == project %}
+                        <p class="tab" id="{{ child_project.name }}">
+                            <button id="button_{{ child_project.name }}" type="button" onclick="show_details(
+                                    '{{ child_project.name }}',
+                                    '{{ child_project.description }}',
+                                    '{{ child_project.deadline }}');
+                                    ">></button>
+                            <span>{{ child_project.name }}</span>
+                        </p>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </p>
+    </div>
 {% endblock %}
