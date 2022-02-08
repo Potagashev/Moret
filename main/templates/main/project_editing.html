@@ -3,23 +3,23 @@
 
 {% block project_info %}
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
-    <form method="post">
+    <form method="post" class="common-text-style">
         {% csrf_token %}
         {% if project %}
-            <h2 class="projectedit-title">Изменить проект</h2>
+            <h2>Изменить проект</h2>
         {% else %}
-            <h2 class="projectedit-title">Создать проект</h2>
+            <h2>Создать проект</h2>
         {% endif %}
-        <p class="projectedit-title2">Имя проекта<br>
-            <input type="text" name="name" value="{{ project.name }}" size="40"></p>
-        <p class="projectedit-title2">Описание<br>
-            <textarea name="description" class="textarea">{{ project.description }}</textarea></p>
-        <p class="projectedit-title2">Срок выполнения<br>
-            <input type="datetime-local" name="deadline" value="{{ project.deadline }}"
+        <p>Имя проекта<br>
+            <input class="project-name-input" type="text" name="name" value="{{ project.name }}" size="40"></p>
+        <p>Описание<br>
+            <textarea name="description" class="project-info-input">{{ project.description }}</textarea></p>
+        <p>Срок выполнения<br>
+            <input class="project-deadline-input" type="datetime-local" name="deadline" value="{{ project.deadline }}"
                    size="20"></p>
 
         {% if project %}
-            <p>Подзадачи
+            <p>
                 {% if projects %}
                     {% for child_project in projects %}
                         {% if child_project.parent_project == project %}
@@ -36,13 +36,13 @@
                 {% endif %}
             </p>
         {% endif %}
-        <p><button type="submit" id="add_child_project_edit" onclick="child_project_form
-        ('add_child_project_edit', 'before_edit_btn');">Добавить подзадачу</button></p>
+        <p><a class="links" type="submit" id="add_child_project_edit" onclick="child_project_form
+        ('add_child_project_edit', 'before_edit_btn');">Добавить подзадачу</a></p>
         <p id="before_edit_btn" class="tab"></p>
         {% if project %}
-            <p><button id="edit_project" name="edit_project" type="submit">Сохранить</button></p>
+            <p><a class="links" id="edit_project" name="edit_project" type="submit">Сохранить</a></p>
         {% else %}
-            <p><button id="create_project" name="create_project" type="submit">Сохранить</button></p>
+            <p><a class="links" style="" id="create_project" name="create_project" type="submit">Сохранить</a></p>
         {% endif %}
     </form>
 {% endblock %}

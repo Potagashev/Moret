@@ -81,6 +81,10 @@
     font-family: ProximaNovaRegular;
 }
 
+.common-text-style {
+    font-family: ProximaNovaRegular;
+}
+
 /*##### SIDEBAR ##############################################*/
 
 .sidebar-color {
@@ -138,7 +142,7 @@
 .del-edit {
     text-align: right;
     position: relative;
-    top: 15px;
+    bottom: 20px;
 }
 
 .project-info {
@@ -147,6 +151,23 @@
     margin-top: 80px;
     width: 60%;
     padding-left: 40px;
+}
+
+.undertasks{
+    font-family: ProximaNovaRegular;
+}
+.project-name {
+    font-size: 36px;
+}
+
+.description {
+    font-size: 24px;
+}
+
+.deadline {
+    position: relative;
+    top: 2px;
+    left: -37px;
 }
 
 /*################### TASKS ####################################*/
@@ -167,7 +188,49 @@
     background: #7A2D1E;
 }
 
-/*######################################################################*/
+/*######################### INPUTS #####################################*/
+
+.project-name-input {
+    width: 300px;
+    font-size: 25px;
+}
+
+.project-info-input {
+    resize: vertical;
+    width: 400px;
+	height: 100px;
+    font-size: 20px;
+}
+
+.project-deadline-input {
+    font-size: 15px;
+}
+
+input[type="text"], input[type="datetime-local"], textarea {
+    background: transparent;
+	border: 1px solid #cecece;
+    font-family: "ProximaNovaLight";
+	padding: 6px 0 4px 10px;
+}
+
+
+
+input[type="password"] {
+    background: transparent;
+    border: 2px solid #22272d;
+    padding-left: 45px;
+    color: #df9e66;
+}
+
+input[type="email"] {
+    background: transparent;
+    border: 2px solid #22272d;
+    padding-left: 45px;
+    color: #df9e66;
+
+}
+
+/*#####################################################################*/
 
 
 .make-center {
@@ -178,10 +241,6 @@
     flex-direction: row;
 }
 
-
-.textarea {
-    margin: 0px; width: 400px; height: 80px;
-}
 
 .nolinebreak_parent { white-space: nowrap; }
 .nolinebreak_child { display: inline-block; }
@@ -194,23 +253,7 @@ a:hover, a:visited {
     background: #c6895d;
 }
 
-.common-text-style {
-    font-family: ProximaNovaRegular;
-}
-.undertasks{
-font-family: ProximaNovaRegular;
-}
-.project-name {
-    font-size: 36px;
-}
 
-.description {
-    font-size: 24px;
-}
-
-.deadline {
-    font-size: 18px;
-}
 
 
 
@@ -378,38 +421,23 @@ button[type="submit2"] {
     margin-top: 20px;
     float: left;
     padding: 3px 0;
-
-
 }
-.input {
-    width: 100%;
-    padding: 5px;
-    height: 40px;
-    border-radius: 3px;
-    margin: 5px 0;
-    outline: none;
 
+.arrow-right-2,
+.arrow-bottom-2 {
+    width: 80px;
+    height: 80px;
 }
-input[type="text"] {
+.arrow-right-2 path,
+.arrow-bottom-2 path {
+    stroke-width: .6;
+    transition: fill 0.5s ease-out;
+    cursor: pointer;
+}
+.arrow-bottom-2 {
+    transform: rotate(90deg);
+}
+.arrow-right-2 path:hover,
+.arrow-bottom-2 path:hover {
     background: transparent;
-    border: 2px solid #22272d;
-    padding-left: 45px;
-    color: #df9e66;
-    font-family: "ProximaNovaLight";
-
-}
-input[type="password"] {
-    background: transparent;
-    border: 2px solid #22272d;
-    padding-left: 45px;
-    color: #df9e66;
-}
-
-
-input[type="email"] {
-    background: transparent;
-    border: 2px solid #22272d;
-    padding-left: 45px;
-    color: #df9e66;
-
 }

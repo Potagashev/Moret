@@ -47,20 +47,24 @@ function child_project_form(btn_id, p_id){
 
 function show_details(pr_name, pr_description, pr_deadline){
   let btn = document.getElementById(`button_${pr_name}`)
-  btn.innerText = '\\/'
+  btn.innerHTML = '<svg style="width: 14px; height: 14px;" class="arrow-bottom-2" viewBox="0 0 9 14">\n' +
+      '    <path class="svg-arrow" d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" />\n' +
+      '</svg>'
   btn.onclick = function(){hide_details(pr_name, pr_description, pr_deadline)}
 
   let p = document.getElementById(pr_name)
   let div = document.createElement('div')
   div.id = `div_${pr_name}`
   div.style = 'margin-left: 27.5px;'
-  div.innerHTML = `${pr_description}<br>Срок выполнения: ${pr_deadline}`
+  div.innerHTML = `<p>${pr_description}</p>Срок выполнения: ${pr_deadline}`
   p.appendChild(div)
 }
 
 function hide_details(pr_name, pr_description, pr_deadline){
   let btn = document.getElementById(`button_${pr_name}`)
-  btn.innerText = '>'
+  btn.innerHTML = '<svg style="width: 14px; height: 14px;" class="arrow-right-2" viewBox="0 0 9 14">\n' +
+      '    <path class="svg-arrow" d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" />\n' +
+      '</svg>'
   btn.onclick = function(){show_details(pr_name, pr_description, pr_deadline)}
 
   let p = document.getElementById(pr_name)
