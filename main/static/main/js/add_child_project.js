@@ -31,7 +31,7 @@ function child_project_form(btn_id, p_id){
     let button = document.createElement('button');
     button.innerText = 'Готово'
     button.type = 'commit'
-    button.name = 'done_btn'
+    button.class = 'del-edit';
 
     div.appendChild(title)
     div.appendChild(p1);

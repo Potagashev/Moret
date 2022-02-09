@@ -24,11 +24,13 @@
                     {% for child_project in projects %}
                         {% if child_project.parent_project == project %}
                             <p class="tab" id="{{ child_project.name }}">
-                                <button id="button_{{ child_project.name }}" type="button" onclick="show_details(
+                                <a id="button_{{ child_project.name }}" type="button" onclick="show_details(
                                         '{{ child_project.name }}',
                                         '{{ child_project.description }}',
                                         '{{ child_project.deadline }}');
-                                        ">></button>
+                                        "><svg style="width: 14px; height: 14px" class="arrow-right-2" viewBox="0 0 9 14">
+    <path class="svg-arrow" d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" />
+</svg></a>
                                 <span>{{ child_project.name }}</span>
                             </p>
                         {% endif %}
@@ -40,9 +42,9 @@
         ('add_child_project_edit', 'before_edit_btn');">Добавить подзадачу</a></p>
         <p id="before_edit_btn" class="tab"></p>
         {% if project %}
-            <p><a class="links" id="edit_project" name="edit_project" type="submit">Сохранить</a></p>
+            <p><button class="links" id="edit_project" name="edit_project" type="submit">Сохранить</button></p>
         {% else %}
-            <p><a class="links" style="" id="create_project" name="create_project" type="submit">Сохранить</a></p>
+            <p><button class="links" style="" id="create_project" name="create_project" type="submit">Сохранить</button></p>
         {% endif %}
     </form>
 {% endblock %}

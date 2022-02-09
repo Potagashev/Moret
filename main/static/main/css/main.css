@@ -175,7 +175,8 @@
 .add-task{
     color: white;
     font-size: 20px;
-    margin-left: 10px;
+    margin-left: 31px;
+    width: 170px;
 }
 
 .tasks {
@@ -188,10 +189,22 @@
     background: #7A2D1E;
 }
 
+.task-button {
+    position: relative;
+    left: 7px;
+    bottom: 1px;
+    padding: 5px;
+    width: 32px;
+    height: 33px;
+    border-radius: 0;
+}
+
+
+
 /*######################### INPUTS #####################################*/
 
 .project-name-input {
-    width: 300px;
+    width: 400px;
     font-size: 25px;
 }
 
@@ -207,7 +220,6 @@
 }
 
 input[type="text"], input[type="datetime-local"], textarea {
-    background: transparent;
 	border: 1px solid #cecece;
     font-family: "ProximaNovaLight";
 	padding: 6px 0 4px 10px;
@@ -258,7 +270,9 @@ a:hover, a:visited {
 
 
 .form-input {
-    width: 300px;
+    position: relative;
+    left: 10px;
+    width: 60%;
     font-size: 16px;
 }
 
@@ -364,29 +378,8 @@ a:hover, a:visited {
    color: #fff;
    border-radius: 3px;
 }*/
-button[type="submit"] {
-  background: #df9e66;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-    font-family: "ProximaNovaRegular";
-    width: 355px;
-    height: 50px;
-}
-button[type="submit2"] {
-  background: #df9e66;
-  border: none;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
-    font-family: "ProximaNovaRegular";
-    width: 230px;
-    height: 50px;
-    margin-top: 20px;
-}
+
+
 .sign-in-pass {
   float: left;
   color: black;
