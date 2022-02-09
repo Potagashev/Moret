@@ -1,0 +1,1 @@
+web: gunicorn Moret.wsgi --log-file -
